@@ -65,8 +65,10 @@
   <section id="hero" class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 md:px-16 overflow-hidden">
 
     <!-- Floating Gradient Squares -->
-    <div class="absolute top-20 left-10 w-24 h-24 rounded-2xl bg-gradient-to-br from-gray-200 via-gray-400 to-gray-600 opacity-70 blur-sm animate-float"></div>
-    <div class="absolute bottom-32 right-16 w-20 h-20 rounded-2xl bg-gradient-to-br from-gray-300 via-gray-500 to-gray-700 opacity-60 blur-sm animate-float-delayed"></div>
+    <div class="absolute top-20 left-10 w-24 h-24 rounded-2xl bg-gradient-to-br from-gray-200 via-gray-400 to-gray-600 opacity-70 animate-float"></div>
+    <div class="absolute top-40 right-24 w-16 h-16 rounded-2xl bg-gradient-to-br from-gray-300 via-gray-500 to-gray-700 opacity-60 animate-float-delayed"></div>
+    <div class="absolute bottom-40 left-24 w-20 h-20 rounded-2xl bg-gradient-to-br from-gray-300 via-gray-500 to-gray-700 opacity-60 animate-float"></div>
+    <div class="absolute bottom-24 right-32 w-28 h-28 rounded-2xl bg-gradient-to-br from-gray-200 via-gray-400 to-gray-600 opacity-50 animate-float-delayed"></div>
 
     <!-- Hero Text -->
     <h1 class="text-5xl md:text-7xl font-bold">
@@ -100,19 +102,19 @@
       <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition">
         <h3 class="text-xl font-semibold mb-2">Advanced Gun System</h3>
         <p class="text-gray-400 text-sm mb-4">Fully scripted weapon system with shooting mechanics, reload logic, and animations.</p>
-        <iframe class="w-full h-64 rounded-xl border border-gray-700" allow="autoplay" allowfullscreen src="https://drive.google.com/file/d/REPLACE_ID/preview"></iframe>
+        <iframe class="w-full h-64 rounded-xl border border-gray-700" allow="autoplay" allowfullscreen src="https://drive.google.com/file/d/1VgN22eE7cwcmWyW_Xv8YBTkWrzz_YbmI/preview"></iframe>
       </div>
 
       <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition">
         <h3 class="text-xl font-semibold mb-2">Inventory System + Datastore</h3>
         <p class="text-gray-400 text-sm mb-4">Persistent inventory using Roblox DataStores with clean UI and safe saving.</p>
-        <iframe class="w-full h-64 rounded-xl border border-gray-700" allow="autoplay" allowfullscreen src="https://drive.google.com/file/d/REPLACE_ID/preview"></iframe>
+        <iframe class="w-full h-64 rounded-xl border border-gray-700" allow="autoplay" allowfullscreen src="https://drive.google.com/file/d/1GRN_VLjto1vV1cQe4l8ZDVU0qg8LxPIn/preview"></iframe>
       </div>
 
       <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition">
         <h3 class="text-xl font-semibold mb-2">Daily Rewards System</h3>
         <p class="text-gray-400 text-sm mb-4">Login reward system with streak tracking and server-side validation.</p>
-        <iframe class="w-full h-64 rounded-xl border border-gray-700" allow="autoplay" allowfullscreen src="https://drive.google.com/file/d/REPLACE_ID/preview"></iframe>
+        <iframe class="w-full h-64 rounded-xl border border-gray-700" allow="autoplay" allowfullscreen src="https://drive.google.com/file/d/1zOTqKCY4R8D3ImWYN2FS7fxfeo88gFVv/preview"></iframe>
       </div>
     </div>
   </section>
@@ -141,60 +143,29 @@
   </section>
 
   <script>
-    const btn = document.getElementById('view-projects-btn');
-    const projects = document.getElementById('projects');
+  const btn = document.getElementById('view-projects-btn');
+  const projects = document.getElementById('projects');
 
-    // Typewriter effect
-    const heroText = "Hi, I'm Tokyo"; // typewriter text
-    const heroEl = document.getElementById('hero-text');
-    let i = 0;
+  // TYPEWRITER EFFECT (single instance)
+  const text = "Hi, I'm Tokyo";
+  const heroEl = document.getElementById('hero-text');
+  let index = 0;
 
-    function typeWriter() {
-      if (i < heroText.length) {
-        heroEl.textContent += heroText.charAt(i);
-        i++;
-        setTimeout(typeWriter, 80);
-      }
+  function typeWriter() {
+    if (index < text.length) {
+      heroEl.textContent += text.charAt(index);
+      index++;
+      setTimeout(typeWriter, 80);
     }
-    }
+  }
 
-    window.addEventListener('load', typeWriter);
+  window.addEventListener('load', typeWriter);
 
-    // View projects animation
-    btn.addEventListener('click', () => {
-      const cards = projects.querySelectorAll('div.grid > div');
-      projects.classList.add('visible');
-      cards.forEach((card, i) => {
-        card.style.opacity = 0;
-        setTimeout(() => {
-          card.style.transition = 'opacity 0.8s ease-in-out';
-          card.style.opacity = 1;
-        }, i * 200);
-      });
-      projects.scrollIntoView({ behavior: 'smooth' });
-    });
-  </script>
-
-  <script>
-    // TYPEWRITER EFFECT
-    const text = "Hi, I'm Tokyo";
-    const heroText = document.getElementById("hero-text");
-    let index = 0;
-
-    function typeWriter() {
-      if (index < text.length) {
-        heroText.textContent += text.charAt(index);
-        index++;
-        setTimeout(typeWriter, 90);
-      }
-    }
-
-    window.addEventListener("load", typeWriter);
-
-    // VIEW MY WORK BUTTON SCROLL
-    document.getElementById("view-projects-btn").addEventListener("click", () => {
-      document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
-    });
-  </script>
+  // VIEW MY WORK BUTTON
+  btn.addEventListener('click', () => {
+    projects.classList.add('visible');
+    projects.scrollIntoView({ behavior: 'smooth' });
+  });
+</script>
 </body>
 </html>
